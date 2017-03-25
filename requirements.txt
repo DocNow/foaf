@@ -1,0 +1,7 @@
+twarc
+redis
+flask
+rq
+flask-oauthlib
+#uwsgi
+supervisor

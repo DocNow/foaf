@@ -1,0 +1,77 @@
+{% extends "base.html"%} 
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="message">{{ message }}</div>
+{% endfor %}
+<br>
+{% endif %}
+{% endwith %}
+
+{% if twitter_user %}
+
+  {% if job %}
+
+  <script>
+    function poll() {
+      $.getJSON('/job', function(job) {
+        if (job == null) {
+          window.location = '/'
+          return
+        }
+        $('#friends-checked').text(job.friends_checked)
+        $('#created').text(job.created)
+        $('#estimated-finish').text(job.estimated_finish)
+      })
+    }
+    $(function() {
+      poll();
+      setInterval(poll, 3000)
+    });
+  </script>
+
+  It looks like you are running a job to collect the friend-of-a-friend
+  network for <b>{{ job.screen_name }}</b> who follows 
+  <b>{{ job.friends_count }}</b>
+  users. I have collected <b id="friends-checked">{{ job.friends_checked }}</b> of them so far. 
+  Since I started at <b id="created">{{ job.created }}</b> I figure I'll be done by 
+  <b id="estimated-finish">{{ job.estimated_finish }}</b>.
+
+  {% else %}
+  Enter a Twitter username you'd like to generate a FOAF network for:
+  <br>
+  <br>
+  <form action="/jobs" method="post">
+    <input size="10" type="text" name="screen_name" size="25">
+    <br>
+    <br>
+    <button>Do It!</button>
+    <input type="submit" value="Start">
+  </form>
+  {% endif %}
+
+  {% if finished_jobs %}
+  <br>
+  <div id="datasets">
+  <h3>Finished Datasets</h3>
+  {% for job in finished_jobs %}
+  <div><a href="/dataset/{{ job.user_id }}">{{ job.screen_name }}</a></div>
+  {% endfor %}
+  </ul>
+  </div>
+  {% endif %}
+
+{% else %}
+
+<p>
+This little app will generate a friend-of-a-friend network for a given user and
+let you download the dataset. But you'll need to login first with your Twitter
+credentials so I can access Twitter on your behalf.
+</p>
+
+{% endif %}
+
+{% endblock %}

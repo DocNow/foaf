@@ -1,0 +1,10 @@
+HOSTNAME = "localhost:8000"
+DEBUG = True
+SECRET_KEY = 'a super secret key'
+STATIC_URL_PATH = '/static'
+DATA_DIR = 'data'
+REDIS_HOST = 'redis'
+REDIS_PORT = 6379
+REDIS_DB = 1
+TWITTER_CONSUMER_KEY = 'changeme'
+TWITTER_CONSUMER_SECRET = 'changeme'

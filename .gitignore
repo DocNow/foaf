@@ -1,0 +1,7 @@
+static/data/*
+*.pyc
+.venv
+app.cfg
+*.log
+*.pid
+Pipfile*

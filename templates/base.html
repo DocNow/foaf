@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>foaf</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="/static/js/app.js"></script>
+  </head>
+  <body>
+    <header>
+      <div id="logo">FriendOfAFriend</div>
+      <div id="login">
+        {% if twitter_user %}
+        {{ twitter_user }} / <a href='/logout'>logout</a>
+        {% else %}
+        <a href='/login'>login</a>
+        {% endif %}
+      </div>
+    </header>
+    <div id='content'>
+    {% block content %}{% endblock content %}
+    </div>
+  </body>
+</html>

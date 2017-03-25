@@ -1,0 +1,47 @@
+body {
+  margin: 0px;
+  font-family: "Helvetica Neue",Helvetica,Arial;
+  font-size: 18pt; 
+}
+
+header {
+  font-size: 22pt;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  display: flex;
+}
+
+header #logo {
+  width: 50%;
+}
+
+header #login {
+  width: 50%;
+  text-align: right;
+}
+
+header a {
+  color: white;
+}
+
+#content {
+  margin: 10%;
+  text-align: center;
+}
+
+#content p {
+  text-align: left;
+}
+
+#datasets {
+}
+
+.message {
+  color: red;
+  font-size: smaller;
+}
+
+input {
+  font-size: 28pt;
+}
