@@ -1,6 +1,7 @@
-foaf is a small webapp that lets people log with their Twitter credentials and
+foaf is a small webapp that lets people log in with their Twitter account and
 generate a friend-of-a-friend network for a given Twitter user. This can take a
-while, but the user can download the data once it is ready.
+while in the background, but once the data is ready they can download it as a
+CSV file.
 
 Under the hood it's a Python Flask application that uses Redis and Supervisor to
 manage a set of workers that will go and fetch the data from the Twitter API.
